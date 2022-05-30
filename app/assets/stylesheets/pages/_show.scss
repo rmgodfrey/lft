@@ -1,9 +1,12 @@
-.container{
+.img-container{
+  position: relative;
   justify-content: center;
 }
 
-.img-container{
-  position: absolute;
-  border-radius: 5px;
-  justify-content: center;
+img {
+  border-radius: 10px;
+}
+
+.container {
+  align-items: center;
 }
