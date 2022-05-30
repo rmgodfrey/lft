@@ -13,6 +13,7 @@ class OffersController < ApplicationController
 
   def create
     @offer = Offer.new(offer_params)
+    raise
     if @offer.save
       redirect_to offer_path(@offer)
     else
