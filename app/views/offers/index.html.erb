@@ -1,0 +1,7 @@
+<h1>Tutoring Offers</h1>
+
+<ul>
+  <% @offers.each do |offer| %>
+    <li><%= link_to offer.topic, offer_path(offer) %>(<%= offer.user.name %>)</li>
+  <% end %>
+</ul>
