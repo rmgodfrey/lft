@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :offers
   validates :location, presence: true
+  validates :name, presence: true
 end
