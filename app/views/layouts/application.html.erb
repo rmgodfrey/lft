@@ -15,13 +15,13 @@
   <body>
     <%= render 'shared/flashes' %>
     <div class="page-container">
-      <header class="navbar-container">
+      <nav>
         <%= render "shared/navbar" %>
-      </header>
-      <main class="content-container">
+      </nav>
+      <main>
         <%= yield %>
       </main>
-      <footer class="footer-container">
+      <footer>
         <%= render "shared/footer" %>
       </footer>
     </div>
