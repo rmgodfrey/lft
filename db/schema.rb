@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2022_05_31_121617) do
   enable_extension "plpgsql"
 
   create_table "bookings", force: :cascade do |t|
-    t.integer "date"
+    t.datetime "starting_date"
     t.bigint "offer_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false

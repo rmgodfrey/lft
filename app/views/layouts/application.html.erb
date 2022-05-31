@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
@@ -15,21 +14,9 @@
   <body>
     <%= render 'shared/flashes' %>
     <div class="page-container">
-      <nav class="navbar navbar-expand-sm navbar-light navbar-lewagon">
-        <div class="container">
-          <%= render "shared/navbar" %>
-        </div>
-      </nav>
-      <main>
-        <div class="container">
-          <%= yield %>
-        </div>
-      </main>
-      <footer>
-        <div class="container">
-          <%= render "shared/footer" %>
-        </div>
-      </footer>
+      <div class="navbar-container"><%= render "shared/navbar" %></div>
+      <div class="content-container"><%= yield %></div>
+      <div class="footer-container"><%= render "shared/footer" %></div>
     </div>
   </body>
 </html>

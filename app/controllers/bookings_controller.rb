@@ -6,17 +6,14 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
-    if @booking.save
-      redirect_to booking_path(@booking)
-    else
-      render :new
-    end
+    @booking.offer = Offer.find(params[:offer_id])
+    @booking.save!
+    redirect_to offer_path(@booking.offer)
   end
 
   private
 
   def booking_params
-    params.require(:booking).permit(:date)
+    params.require(:booking).permit(:starting_date)
   end
-
 end

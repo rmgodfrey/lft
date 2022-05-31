@@ -1,20 +1,23 @@
-<div class="show-header">
-  <h1><%= @offer.topic %></h1>
-</div>
-<div class="img-container">
-  <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Biology picture">
-</div>
-<div class="show-bottom">
-  <div class="card-description">
-    <p><%= @offer.description %></p>
+<div class="container">
+  <div class="show-header">
+    <h1><%= @offer.topic %></h1>
   </div>
-  <div class="booking-card">
-    <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="card-product-infos">
-        <h2><%= @offer.topic %></h2>
-        <p><%= @offer.description %></p>
+  <div class="img-container">
+    <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Biology picture">
+  </div>
+  <div class="show-bottom">
+    <div class="card-description">
+      <p><%= @offer.description %></p>
+    </div>
+    <div class="booking-card">
+      <div class="card-product">
+        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+        <div class="card-product-infos">
+          <h2><%= @offer.topic %></h2>
+          <p><%= @offer.description %></p>
+        </div>
       </div>
     </div>
   </div>
+  <%= render 'bookings/new' %>
 </div>
