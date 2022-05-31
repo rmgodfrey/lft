@@ -5,9 +5,9 @@
   }
 }
 
-@media(max-width: 1440px) {
+@media(max-width: 1500px) {
   .card-container {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
   }
 }
 
@@ -16,8 +16,13 @@
 //     grid-template-columns: 1fr 1fr;
 //   }
 // }
+@media(max-width: 900px) {
+  .card-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
 
-@media(max-width: 768px) {
+@media(max-width: 600px) {
   .card-container {
     grid-template-columns: 1fr;
   }
