@@ -6,14 +6,29 @@
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+#logo {
+  font-family: $logo-font;
+  font-size: 1.5em;
+  padding: 0;
+  transform: rotate(-25deg);
+  color: $orange;
+  text-decoration: none;
 }
 
 nav {
-  background: rgba(150, 150, 150, 0.5);
+  background: $light-orange-transparent !important;
   border-bottom: solid 1px;
   width: 100%;
   text-align: center;
   padding: $spacer 0;
+}
+
+.nav-link {
+  // TODO: Learn more about the asset pipeline so I can avoid this
+  // !important business
+  color: $orange !important;
+  opacity: 0.55 !important;
+  &:hover {
+    opacity: 1 !important;
+  }
 }
