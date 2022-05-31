@@ -5,7 +5,7 @@
 <div class="card-container">
   <% @offers.each do |offer| %>
     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+       <img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
       <div class="card-product-infos">
         <%= link_to offer.topic, offer_path(offer) %> (<%= offer.user.name %>)
       </div>
