@@ -5,3 +5,4 @@
     <li><%= link_to offer.topic, offer_path(offer) %>(<%= offer.user.name %>)</li>
   <% end %>
 </ul>
+<%= link_to "Make New Offer",  new_offer_path, class:"btn btn-primary" %>
