@@ -4,11 +4,17 @@
 
 <div class="card-container">
   <% @offers.each do |offer| %>
-    <div class="card-product">
+    <div class="card-product position-relative">
        <img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
       <div class="card-product-infos">
+        <div class="description-height">
         <%= link_to offer.topic, offer_path(offer) %> (<%= offer.user.name %>)
-        <p id="new-offer-button"><%= link_to "Book your session", class:"btn btn-primary" %></p>
+        <%= offer.description %>
+        </div>
+        <div class="d-flex justify-content-between button-positions" >
+          <%= link_to "Book Now",offer_path(offer), class: "btn btn-primary" %>
+          <%= link_to "Lesson Info",offer_path(offer), class: "btn btn-primary" %>
+        </div>
       </div>
     </div>
   <% end %>
