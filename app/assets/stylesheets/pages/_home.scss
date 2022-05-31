@@ -28,17 +28,14 @@ body {
 }
 
 main {
-  padding-top: 30px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-bottom: 60px;
+  padding: ($spacer * 2) 0;
 }
 
 .card-container {
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 
 .card-product {
@@ -73,4 +70,8 @@ main {
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+#new-offer-button {
+  margin: $spacer 0;
 }
