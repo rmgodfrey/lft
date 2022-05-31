@@ -5,3 +5,13 @@
   min-height: 100vh;
   grid-template-rows: auto 1fr auto;
 }
+
+main {
+  border-top: solid $section-border-width black;
+  border-bottom: solid $section-border-width black;
+  background-color: $light-red;
+}
+
+body {
+  background-color: $light-orange;
+}

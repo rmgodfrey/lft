@@ -1,5 +1,9 @@
 .navbar-lewagon {
   justify-content: space-between;
+  background: $light-orange !important;
+  width: 100%;
+  text-align: center;
+  padding: $spacer 0;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,33 +12,40 @@
 
 .navbar-logo {
   display: flex;
-  position: relative;
-}
-
-#logo {
-  font-family: $logo-font;
-  font-size: 1.5em;
-  padding: 0;
-  transform: rotate(-25deg);
   color: $orange;
-  text-decoration: none;
-  position: absolute;
-}
-
-nav {
-  background: $light-orange-transparent !important;
-  border-bottom: solid 1px;
-  width: 100%;
-  text-align: center;
-  padding: $spacer 0;
+  gap: $spacer;
+  align-items: center;
+  .logo {
+    border: solid 1.5px $orange;
+    background-image: linear-gradient(to left, $light-orange, $light-red 50% 50%, $light-orange);
+    font-family: $logo-font;
+    font-size: 1.5em;
+    padding: ($spacer / 4) $spacer;
+    transform: rotate(-25deg);
+    text-decoration: none;
+    border-radius: 50%;
+    letter-spacing: 0.1em;
+    // Necessary because letter-spacing means logo will no longer be
+    // centred in its oval
+    text-indent: 0.1em;
+  }
+  .logo-text {
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
 }
 
 .nav-link {
-  // TODO: Learn more about the asset pipeline so I can avoid this
+  // TODO: Learn more about selector specificity so I can avoid this
   // !important business
   color: $orange !important;
   opacity: 0.7 !important;
   &:hover {
     opacity: 1 !important;
   }
+}
+
+.navbar-nav img {
+  margin: 0 $spacer;
+  border: 1.5px solid $orange;
 }
