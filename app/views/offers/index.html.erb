@@ -8,9 +8,10 @@
        <img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
       <div class="card-product-infos">
         <%= link_to offer.topic, offer_path(offer) %> (<%= offer.user.name %>)
+        <p id="new-offer-button"><%= link_to "Book your session", class:"btn btn-primary" %></p>
       </div>
     </div>
   <% end %>
 </div>
 
-<p id="new-offer-button"><%= link_to "Make New Offer",  new_offer_path, class:"btn btn-primary" %></p>
+ <%# <p id="new-offer-button"><%= link_to "Make New Offer",  new_offer_path, class:"btn btn-primary" %></p> %>
