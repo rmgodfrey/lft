@@ -1,6 +1,4 @@
-<h1>Welcome to LFT</h1>
-
-<h2>Available Lessons</h2>
+<%= render "shared/banner", number_of_lessons: @offers.count %>
 
 <div class="card-container">
   <% @offers.each do |offer| %>
