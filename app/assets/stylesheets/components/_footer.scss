@@ -1,0 +1,11 @@
+footer {
+  border-top: solid 1px;
+  background: rgba(150, 150, 150, 0.5);
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: $spacer;
+}
