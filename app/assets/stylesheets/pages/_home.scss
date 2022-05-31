@@ -27,39 +27,15 @@ body {
   text-align: center;
 }
 
-footer {
-  border-top: solid 1px;
-  background: rgba(150, 150, 150, 0.5);
-  width: 100%;
-  height: 40px;
-  padding-top: 10px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  text-align: center;
-}
-
-header {
-  background: rgba(150, 150, 150, 0.5);
-  border-bottom: solid 1px;
-  width: 100%;
-  text-align: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
 main {
-  padding-top: 30px;
-  padding-left: 100px;
-  padding-right: 100px;
-  padding-bottom: 60px;
+  padding: ($spacer * 2) 0;
 }
 
 .card-container {
   display: grid;
   // grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 16px;
-  padding-top: 20px;
+  padding: 20px 0;
 }
 
 .card-product {
@@ -94,4 +70,8 @@ main {
 
 .card-product .card-product-infos {
   padding: 16px;
+}
+
+#new-offer-button {
+  margin: $spacer 0;
 }
