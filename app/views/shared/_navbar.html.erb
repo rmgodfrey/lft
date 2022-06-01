@@ -15,12 +15,20 @@
     <li class="nav-item active">
       <a class="nav-link" href="/offers/new">Become a Tutor</a>
     </li>
-    <li class="nav-item dropdown">
-      <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" />
-      <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-        <a class="dropdown-item" href="/bookings">Upcoming Lessons</a>
-        <a class="dropdown-item" href="#">Past Lessons</a>
-      </div>
-    </li>
+    <% if current_user %>
+      <li class="nav-item dropdown">
+        <%# <img class="avatar dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" src="https://kitt.lewagon.com/placeholder/users/ssaunier" /> %>
+          <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false", alt: "Photo of #{current_user.name}" %>
+        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/bookings">Upcoming Lessons</a>
+          <a class="dropdown-item" href="#">Past Lessons</a>
+          <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+        </div>
+      </li>
+    <% else %>
+      <li class="nav-item active">
+        <%= link_to "Log In", new_user_session_path, class: "nav-link" %>
+      </li>
+    <% end %>
   </ul>
 </div>

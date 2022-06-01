@@ -17,6 +17,7 @@
                 input_html: { autocomplete: "new-password" } %>
     <%= f.input :name, required: false %>
     <%= f.input :location, required: false %>
+    <%= f.input :photo, as: :file %>
     <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
   </div>
 
