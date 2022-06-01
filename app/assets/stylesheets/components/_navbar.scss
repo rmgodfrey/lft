@@ -1,19 +1,56 @@
 .navbar-lewagon {
   justify-content: space-between;
+  background: $light-orange !important;
+  width: 100%;
+  text-align: center;
+  padding: $spacer 0;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-logo {
+  display: flex;
+  color: $orange;
+  gap: $spacer;
+  align-items: center;
+  .logo {
+    border: solid 1.5px $orange;
+    background-image: linear-gradient(to left, $light-orange, $light-red 50% 50%, $light-orange);
+    font-family: $logo-font;
+    font-size: 1.5em;
+    padding: ($spacer / 4) $spacer;
+    transform: rotate(-25deg);
+    text-decoration: none;
+    border-radius: 50%;
+    letter-spacing: 0.1em;
+    // Necessary because letter-spacing means logo will no longer be
+    // centred in its oval
+    text-indent: 0.1em;
+  }
+  .logo-text {
+    font-weight: bolder;
+    text-transform: uppercase;
+  }
 }
 
-nav {
-  background: rgba(150, 150, 150, 0.5);
-  border-bottom: solid 1px;
-  width: 100%;
-  text-align: center;
-  padding: $spacer 0;
+.nav-link {
+  // TODO: Learn more about selector specificity so I can avoid this
+  // !important business
+  color: $orange !important;
+  opacity: 0.8 !important;
+  &:hover {
+    opacity: 1 !important;
+  }
+}
+
+.navbar-nav {
+  & > li {
+    margin-left: 8px;
+  }
+  img {
+    margin-left: $spacer;
+    border: 1.5px solid $orange;
+  }
 }
