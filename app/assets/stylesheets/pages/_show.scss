@@ -1,11 +1,15 @@
 .img-container{
   position: relative;
   justify-content: center;
-}
+  }
 
 img {
   border-radius: 10px;
   object-fit: cover;
+  }
+
+.img-container img{
+  height: 500px;
 }
 
 .container {
@@ -18,8 +22,8 @@ img {
 
 .show-bottom {
   padding-top: 25px;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card-description {
