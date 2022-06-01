@@ -5,13 +5,13 @@
     <div class="card-product position-relative">
        <img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
       <div class="card-product-infos">
-        <%= offer.topic %>
         <div class="description-height">
-          <%= offer.description %>
+        <%= link_to offer.topic, offer_path(offer) %> (<%= offer.user.name %>)
+        <%= offer.description %>
         </div>
         <div class="d-flex justify-content-between button-positions" >
-          <%= link_to "Book Now",offer_path(offer), class:"btn btn-outline-secondary" %>
-          <%= link_to "Lesson Info",offer_path(offer), class:"btn btn-outline-secondary" %>
+          <%= link_to "Book Now",offer_path(offer), class: "btn btn-primary" %>
+          <%= link_to "Lesson Info",offer_path(offer), class: "btn btn-primary" %>
         </div>
       </div>
     </div>
