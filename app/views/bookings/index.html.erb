@@ -1,0 +1,11 @@
+<p>Welcome to your Schedule</p>
+<div class="card-container">
+  <% @bookings.each do |booking| %>
+  <div class="card-product position-relative">
+    <p>Upcoming Lesson</p>
+    <%= booking.starting_date.strftime("%A, %b %d") %>
+    <p> <%= booking.offer.topic %> </p>
+    <p> <%= booking.offer.description %> </p>
+  </div>
+  <% end %>
+</div>
