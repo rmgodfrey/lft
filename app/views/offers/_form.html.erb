@@ -1,5 +1,9 @@
 <%= simple_form_for [ @offer ] do |f| %>
-  <%= f.input :topic %>
-  <%= f.input :description %>
+  <div class="offer-description-container">
+  <%# <div class="offer-topic-container"> %>
+    <%= f.input :topic %>
+  <%# </div> %>
+    <%= f.input :description %>
+  </div>
   <%= f.submit "Submit Tutoring Service", class: "btn btn-primary" %>
 <% end %>
