@@ -5,7 +5,9 @@
     <div class="card-product position-relative">
        <img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
       <div class="card-product-infos">
-        <%= offer.topic %>
+        <div class="card-product-main-info">
+          <%= offer.topic %>, with <%= offer.user.name %>
+        </div>
         <div class="description-height">
           <%= offer.description %>
         </div>
