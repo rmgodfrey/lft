@@ -1,7 +1,7 @@
-<p>Welcome to your Schedule</p>
+<h1>Welcome to your Schedule</h1>
 <div class="card-container">
   <% @bookings.each do |booking| %>
-  <div class="card-product">
+  <div class="card-product card-booking">
     <%= "Upcoming #{booking.offer.topic} Lesson" %>
     <p> <%= booking.starting_date.strftime("%A, %b %d") %> </p>
     <div class="description-height">
