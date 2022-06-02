@@ -9,12 +9,12 @@
   font-size: 16px;
   font-family: $body-font;
   text-align: left;
+  display: grid;
 
   .card-product-infos {
     padding: 16px;
     display: grid;
-    grid-template-rows: auto 1fr auto;
-    grid-gap: 16px;
+    grid-template-rows: 4fr 1fr;
   }
 
   h3 {
