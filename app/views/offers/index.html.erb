@@ -2,6 +2,9 @@
 
 <div class="card-container">
   <% @offers.each do |offer| %>
-    <%= render "shared/lesson_card", offer: offer %>
+    <%= render "shared/lesson_card", offer: offer do %>
+      <%= link_to "Book Now", offer_path(offer), class: "btn btn-primary" %>
+      <%= link_to "Lesson Info", offer_path(offer), class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 </div>
