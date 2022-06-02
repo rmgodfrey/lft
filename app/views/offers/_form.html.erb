@@ -1,9 +1,10 @@
 <%= simple_form_for [ @offer ] do |f| %>
   <div class="offer-description-container">
-  <%# <div class="offer-topic-container"> %>
     <%= f.input :topic %>
-  <%# </div> %>
     <%= f.input :description %>
+    <%= f.input :address,
+                input_html: { data: { geocoder_target: "address" }, class: "d-none" },
+                wrapper_html: { data: { controller: "geocoder", geocoder_api_key_value: ENV['MAPBOX_API_KEY'] } } %>
   </div>
   <%= f.submit "Submit Tutoring Service", class: "btn btn-primary" %>
 <% end %>
