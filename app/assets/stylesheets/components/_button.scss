@@ -2,7 +2,8 @@
   border: 2px solid $orange;
   color: $orange;
   background-color: white;
-  &:hover {
+  border-radius: 5px;
+  &:hover, &:active, &:focus {
     color: $orange;
     border: 2px solid $orange;
     background-color: $light-orange;
