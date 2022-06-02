@@ -17,6 +17,8 @@
                     input_html: { autocomplete: "new-password" } %>
         <%= f.input :name, required: false %>
         <%= f.input :location, required: false %>
+        <%# Won't be needed once geocoding is working correctly! %>
+        <%= f.input :time_zone %>
         <%= f.input :photo, as: :file %>
         <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
       </div>
