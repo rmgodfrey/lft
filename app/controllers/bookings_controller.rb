@@ -7,7 +7,6 @@ class BookingsController < ApplicationController
       date_range = ...Time.zone.now
     end
     @bookings = Booking.where(user: current_user, starting_date: date_range)
-    raise
   end
 
   def new
