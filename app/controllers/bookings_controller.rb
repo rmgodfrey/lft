@@ -1,7 +1,13 @@
 class BookingsController < ApplicationController
 
   def index
-    @bookings = Booking.where(user: current_user)
+    if params[:time] == "future"
+      date_range = Time.zone.now..
+    else
+      date_range = ...Time.zone.now
+    end
+    @bookings = Booking.where(user: current_user, starting_date: date_range)
+    raise
   end
 
   def new
@@ -13,7 +19,7 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.offer = Offer.find(params[:offer_id])
     @booking.save!
-    redirect_to offer_path(@booking.offer)
+    redirect_to bookings_path("future")
   end
 
   private

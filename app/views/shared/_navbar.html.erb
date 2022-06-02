@@ -19,8 +19,8 @@
       <li class="nav-item dropdown">
         <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false", alt: "Photo of #{current_user.name}" %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/bookings">Upcoming Lessons</a>
-          <a class="dropdown-item" href="#">Past Lessons</a>
+          <%= link_to "Upcoming Lessons", bookings_path("future"), class: "dropdown-item" %>
+          <%= link_to "Past Lessons", bookings_path("past"), class: "dropdown-item" %>
           <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
