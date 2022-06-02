@@ -3,6 +3,14 @@ class OffersController < ApplicationController
 
   def index
     @offers = Offer.all
+    @markers = @offers.geocoded.map do |offer|
+      {
+        lat: offer.latitude,
+        lng: offer.longitude,
+        info_window: render_to_string(partial: "info_window", locals: { offer: offer }),
+        image_url: helpers.asset_url("book_icon.png")
+      }
+    end
   end
 
   def show
@@ -27,7 +35,7 @@ class OffersController < ApplicationController
   private
 
   def offer_params
-    params.require(:offer).permit(:topic, :description)
+    params.require(:offer).permit(:topic, :description, :address)
   end
 
   # def booking_params

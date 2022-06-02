@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Create fake offers
+Booking.destroy_all
+Offer.destroy_all
+User.destroy_all
+puts "destroyed everything"
 
 SUBJECTS = %w[
   History Math Geography English Philosophy Computer\ Science Political\ Science
@@ -20,9 +24,10 @@ SUBJECTS = %w[
   )
   rand(4).times do
     offer = Offer.new(
-      topic: SUBJECTS.sample, description: Faker::Lorem.paragraph,
+      topic: SUBJECTS.sample, description: Faker::Lorem.paragraph, address: Faker::Address.street_address
     )
     offer.user = user
     offer.save!
   end
 end
+puts "created users and offers"
