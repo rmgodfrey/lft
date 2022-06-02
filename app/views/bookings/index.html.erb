@@ -1,14 +1,11 @@
 <h1>Welcome to your Schedule</h1>
 <div class="card-container">
   <% @bookings.each do |booking| %>
-  <div class="card-product card-booking">
-    <%= "Upcoming #{booking.offer.topic} Lesson" %>
-    <p> <%= booking.starting_date.strftime("%A, %b %d") %> </p>
-    <div class="description-height">
-    <p> <%= booking.offer.description %> </p>
-    </div>
-    <%= link_to "Edit",offer_path(booking), class: "btn btn-primary" %>
-  </div>
+    <%= render "shared/lesson_card", offer: booking.offer do %>
+      <%# path should be `edit_booking_path(booking)`, but this doesn't exist
+          yet %>
+      <%= link_to "Update Booking", offer_path(booking.offer), class: "btn btn-secondary" %>
+    <% end %>
   <% end %>
 </div>
 
