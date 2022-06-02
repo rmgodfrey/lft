@@ -8,15 +8,15 @@
           placeholder: "Find a lesson",
           autocomplete: 'off'
       %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+    <%= submit_tag "Search", class: "btn btn-secondary" %>
   </div>
 <% end %>
 
 <div class="card-container">
   <% @offers.each do |offer| %>
     <%= render "shared/lesson_card", offer: offer do %>
+      <%= link_to "Lesson Info", offer_path(offer), class: "btn btn-secondary" %>
       <%= link_to "Book Now", offer_path(offer), class: "btn btn-primary" %>
-      <%= link_to "Lesson Info", offer_path(offer), class: "btn btn-primary" %>
     <% end %>
   <% end %>
 </div>
