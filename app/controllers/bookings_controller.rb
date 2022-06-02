@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
 
   def index
-    # Time.zone = current_user.time_zone
     if params[:time] == "future"
       date_range = Time.zone.now...
     else
@@ -11,12 +10,15 @@ class BookingsController < ApplicationController
   end
 
   def new
-    Time.zone = current_user.time_zone
     @booking = Booking.new
   end
 
   def create
-    raise
+    # time_zone = ActiveSupport::TimeZone::MAPPING[current_user.time_zone]
+    # tz = TZInfo::Timezone.get(time_zone)
+    # time = Time.iso8601(params["booking"]["starting_date"] + ":00")
+    # year, month, day, hour, min =
+    #   time.year, time.month, time.day, time.hour, time.min
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.offer = Offer.find(params[:offer_id])
