@@ -1,21 +1,22 @@
 <%= render "shared/banner", number_of_lessons: @offers.count %>
 
+<%= form_tag offers_path, method: :get do %>
+  <div class="lesson-search">
+    <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a lesson",
+          autocomplete: 'off'
+      %>
+    <%= submit_tag "Search", class: "btn btn-secondary" %>
+  </div>
+<% end %>
+
 <div class="card-container">
   <% @offers.each do |offer| %>
-    <div class="card-product position-relative">
-       <img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
-      <div class="card-product-infos">
-        <div class="card-product-main-info">
-          <%= offer.topic %>, with <%= offer.user.name %>
-        </div>
-        <div class="description-height">
-        <%= offer.description %>
-        </div>
-        <div class="d-flex justify-content-between button-positions" >
-          <%= link_to "Book Now",offer_path(offer), class: "btn btn-primary" %>
-          <%= link_to "Lesson Info",offer_path(offer), class: "btn btn-primary" %>
-        </div>
-      </div>
-    </div>
+    <%= render "shared/lesson_card", offer: offer do %>
+      <%= link_to "Lesson Info", offer_path(offer), class: "btn btn-secondary" %>
+      <%= link_to "Book Now", offer_path(offer), class: "btn btn-primary" %>
+    <% end %>
   <% end %>
 </div>

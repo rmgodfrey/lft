@@ -17,7 +17,7 @@
   align-items: center;
   .logo {
     border: solid 1.5px $orange;
-    background-image: linear-gradient(to left, $light-orange, $light-red 50% 50%, $light-orange);
+    background-image: linear-gradient(to left, $light-orange, white 50%, $light-orange);
     font-family: $logo-font;
     font-size: 1.5em;
     padding: ($spacer / 4) $spacer;

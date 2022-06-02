@@ -2,7 +2,11 @@ class OffersController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index]
 
   def index
-    @offers = Offer.all
+    if params[:query].present?
+      @offers = Offer.global_search(params[:query])
+    else
+      @offers = Offer.all
+    end
   end
 
   def show
@@ -29,8 +33,4 @@ class OffersController < ApplicationController
   def offer_params
     params.require(:offer).permit(:topic, :description)
   end
-
-  # def booking_params
-  #   params.require(:booking).permit(:date)
-  # end
 end

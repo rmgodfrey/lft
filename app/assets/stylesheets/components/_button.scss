@@ -1,10 +1,24 @@
-.btn-primary {
+.btn {
   border: 2px solid $orange;
+  border-radius: 5px;
   color: $orange;
   background-color: white;
-  &:hover {
+}
+
+.btn-secondary {
+  &:hover, &:active, &:focus {
     color: $orange;
     border: 2px solid $orange;
     background-color: $light-orange;
+  }
+}
+
+.btn-primary {
+  background-color: $orange;
+  color: white;
+  &:hover, &:active, &:focus {
+    color: white;
+    border: 2px solid $gray;
+    background-color: $orange;
   }
 }
