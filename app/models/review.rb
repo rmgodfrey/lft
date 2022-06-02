@@ -1,5 +1,6 @@
 class Review < ApplicationRecord
   belongs_to :offer
-  validates :topic, presence: true
-  validates :description, presence: true
+
+  validates :content, presence: true
+  validates :rating, presence: true, inclusion: { in: 0..5 }
 end
