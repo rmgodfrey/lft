@@ -1,4 +1,7 @@
 class ReviewsController < ApplicationController
+  def index
+    @reviews = Review.where(user: current_user)
+  end
 
   def new
     @offer = Offer.find(params[:offer_id])
@@ -7,10 +10,10 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @offer = Offer.find(params[:offer_id])
-    @review.offer = @offer
-    @review.save!
-    redirect_to offer_path(@offer)
+    @review.user = current_user
+    @review.offer = Offer.find(params[:offer_id])
+    @review.save
+    redirect_to offer_path(@review.offer)
   end
 
   private
