@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'offers#index'
   resources :offers, only: %i[index show new create] do
     resources :bookings, only: %i[new create]
+    resources :reviews, only: %i[new create]
   end
   resources :bookings, only: :index
 end
