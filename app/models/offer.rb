@@ -9,7 +9,7 @@ class Offer < ApplicationRecord
   pg_search_scope :global_search,
                   against: [ :topic, :description ],
                   associated_against: {
-                    user: [:name]
+                    user: [ :name, :location ]
                   },
                   using: {
                     tsearch: { prefix: true }
