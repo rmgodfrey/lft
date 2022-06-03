@@ -6,7 +6,7 @@
     <div>
       <h2 class="card-product-main-info"><%= offer.topic %></h2>
       <%# TODO: Add user avatar %>
-      <h3><%= offer.user.name %> (<%= offer.user.location %>)</h3>
+      <h3><%= offer.user.name %> <br> <span class="tutor-location"><%= offer.user.location %></span></h3>
       <p><%= offer.description %></p>
     </div>
   <% end %>
