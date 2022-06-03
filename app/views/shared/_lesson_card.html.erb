@@ -1,11 +1,15 @@
-<img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
+<%= link_to offer_path(offer) do %>
+  <img src="https://source.unsplash.com/random/?<%= offer.topic %>" />
+<% end %>
 <div class="card-product-infos">
-  <div>
-    <h2 class="card-product-main-info"><%= offer.topic %></h2>
-    <%# TODO: Add user avatar %>
-    <h3><%= offer.user.name %><br>(<%= offer.user.location %>)</h3>
-    <p><%= offer.description %></p>
-  </div>
+  <%= link_to offer_path(offer) do %>
+    <div>
+      <h2 class="card-product-main-info"><%= offer.topic %></h2>
+      <%# TODO: Add user avatar %>
+      <h3><%= offer.user.name %> (<%= offer.user.location %>)</h3>
+      <p><%= offer.description %></p>
+    </div>
+  <% end %>
   <div class="d-flex justify-content-between button-positions" >
     <%= yield %>
   </div>
