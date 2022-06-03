@@ -6,6 +6,7 @@
     <div>
       <h2 class="card-product-main-info"><%= offer.topic %></h2>
       <%# TODO: Add user avatar %>
+      <%#= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-bordered", "aria-expanded": "false", alt: "Photo of #{current_user.name}" %>
       <h3><%= offer.user.name %> (<%= offer.user.location %>)</h3>
       <p><%= offer.description %></p>
     </div>
