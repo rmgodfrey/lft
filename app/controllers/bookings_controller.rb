@@ -14,14 +14,18 @@ class BookingsController < ApplicationController
   end
 
   def create
-    offer = Offer.find(params[:offer_id])
+    @offer = Offer.find(params[:offer_id])
     @booking = Booking.new
     @booking.user = current_user
-    @booking.offer = offer
+    @booking.offer = @offer
 
-    set_booking_time(offer)
+    set_booking_time(@offer)
 
-    redirect_to bookings_path("future") if @booking.save
+    if @booking.save
+      redirect_to bookings_path("future") if @booking.save
+    else
+      render 'offers/show'
+    end
     # TODO: re-render page if booking doesn't save. Easier said than done;
     # not sure how to do this when the page belongs to another controller.
   end
