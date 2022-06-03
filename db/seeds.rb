@@ -17,6 +17,19 @@ SUBJECTS = %w[
   Physics Chemistry Linguistics Anthropology Sociology Biology
 ]
 
+LOCATIONS = {
+  "Vancouver, Canada" => ["3300 Oak St", "2725 W 42nd Ave", "1599 W 65th Ave",
+                          "799 Cambie St", "6780 Butler St", "2394 Cornwall Ave"],
+  "Baku, Azerbaijan",
+  "Indianapolis, United States",
+  "Jaipur, India",
+  "Washington, D.C., United States",
+  "Mexico City, Mexico",
+  "Yekaterinburg, Russia",
+  "Pyongyang, North Korea",
+  "Chongqing, China"
+}
+
 5.times do
   user = User.create(
     name: Faker::Name.name, location: Faker::Address.city,
