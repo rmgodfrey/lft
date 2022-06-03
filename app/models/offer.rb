@@ -1,6 +1,7 @@
 class Offer < ApplicationRecord
   include PgSearch::Model
   belongs_to :user
+  has_many :reviews, dependent: :destroy
   validates :topic, presence: true
   validates :description, presence: true
   geocoded_by :address

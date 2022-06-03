@@ -14,7 +14,7 @@
             <%= link_to "Update Booking", offers_path, class: "btn btn-secondary" %>
           <% else %>
             <%# Path will need to be changed once review feature is ready %>
-            <%= link_to "Leave a Review", offers_path, class: "btn btn-primary" %>
+            <%= link_to "Leave a Review", new_offer_review_path(booking.offer), class: "btn btn-primary" %>
           <% end %>
         <% end %>
       </div>

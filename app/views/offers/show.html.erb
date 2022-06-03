@@ -16,3 +16,12 @@
     </div>
   </div>
 </div>
+
+<div class="reviews-container">
+  <h2>Reviews</h2>
+  <ul>
+    <% @offer.reviews.each do |review| %>
+      <li><%= review.content %> (<%= review.rating %> stars, <%= review.user.name %>)</li>
+    <% end %>
+  </ul>
+</div>

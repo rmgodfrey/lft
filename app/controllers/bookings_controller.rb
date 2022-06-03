@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-
   def index
     if params[:time] == "future"
       date_range = Time.now.utc..
