@@ -1,5 +1,6 @@
 class Offer < ApplicationRecord
   belongs_to :user
+  has_many :reviews
   validates :topic, presence: true
   validates :description, presence: true
   include PgSearch::Model

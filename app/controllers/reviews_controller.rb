@@ -10,7 +10,7 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.new(review_params)
-    @review.user = current_user
+    # @review.user = current_user
     @review.offer = Offer.find(params[:offer_id])
     @review.save
     redirect_to offer_path(@review.offer)
