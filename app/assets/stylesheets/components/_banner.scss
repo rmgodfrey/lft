@@ -20,9 +20,11 @@
     font-weight: bold;
     font-family: $headers-font;
     letter-spacing: 2px;
+    text-align: center;
   }
   p {
     font-size: 1.5em;
+    text-align: center;
   }
   .banner-child:last-child {
     // Hacky fix for now
