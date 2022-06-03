@@ -14,10 +14,12 @@
 
 <div class="card-container">
   <% @offers.each do |offer| %>
+    <div class="card-product position-relative">
     <%= render "shared/lesson_card", offer: offer do %>
       <%= link_to "Lesson Info", offer_path(offer), class: "btn btn-secondary" %>
       <%= link_to "Book Now", offer_path(offer), class: "btn btn-primary" %>
     <% end %>
+    </div>
   <% end %>
 </div>
 

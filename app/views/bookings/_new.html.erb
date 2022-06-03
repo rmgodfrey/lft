@@ -1,4 +1,5 @@
 <%= simple_form_for [ @offer, @booking ] do |f| %>
-  <%= f.input :starting_date, html5: true %>
+  <% timezone_string = @offer.timezone ? "#{@offer.timezone}" : "UTC" %>
+  <%= f.input :starting_date, html5: true, label: "Choose a time (#{timezone_string})" %>
   <%= f.submit "Book", class: "btn btn-primary" %>
 <% end %>

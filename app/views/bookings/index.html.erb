@@ -1,13 +1,23 @@
-<h1>Welcome to your Schedule</h1>
-<div class="card-container">
-  <% @bookings.each do |booking| %>
-    <%= render "shared/lesson_card", offer: booking.offer do %>
-      <%# path should be `edit_booking_path(booking)`, but this doesn't exist
-          yet %>
-      <%= link_to "Update Booking", offer_path(booking.offer), class: "btn btn-secondary" %>
+<div class="bookings">
+  <% time_adjective = params[:time] == "future" ? "Upcoming" : "Past" %>
+  <h1><%= time_adjective %> Lessons</h1>
+  <div class="card-container">
+    <% @bookings.each do |booking| %>
+      <div class="card-product position-relative">
+        <p class="card-top">
+          <% time = current_user.fetch_timezone.utc_to_local(booking.starting_date) %>
+          <%= time.strftime("%a %B %-d, %-l:%M %P")%>
+        </p>
+        <%= render "shared/lesson_card", offer: booking.offer do %>
+          <% if params[:time] == "future" %>
+            <%# Path should be `edit_booking_path(booking)`, but this doesn't exist yet %>
+            <%= link_to "Update Booking", offers_path, class: "btn btn-secondary" %>
+          <% else %>
+            <%# Path will need to be changed once review feature is ready %>
+            <%= link_to "Leave a Review", offers_path, class: "btn btn-primary" %>
+          <% end %>
+        <% end %>
+      </div>
     <% end %>
-  <% end %>
+  </div>
 </div>
-
-
-<ion-icon name="ellipsis-horizontal-outline"></ion-icon>

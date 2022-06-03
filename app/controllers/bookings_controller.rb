@@ -6,7 +6,11 @@ class BookingsController < ApplicationController
     else
       date_range = ...Time.now.utc
     end
-    @bookings = Booking.where(user: current_user, starting_date: date_range)
+    bookings = Booking.where(user: current_user, starting_date: date_range)
+    @bookings = bookings.sort_by do |booking|
+      date = booking.starting_date.to_i
+      params[:time] == "future" ? date : -date
+    end
   end
 
   def create
@@ -15,15 +19,23 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.offer = offer
 
-    lesson_timezone = offer.fetch_timezone
-    booking_time = parse(params[:booking][:starting_date])
-    @booking.starting_date = lesson_timezone.local_to_utc(booking_time)
+    set_booking_time(offer)
 
     @booking.save!
     redirect_to bookings_path("future")
   end
 
   private
+
+  def set_booking_time(offer)
+    booking_time = parse(params[:booking][:starting_date])
+    if offer.timezone
+      lesson_timezone = offer.fetch_timezone
+      @booking.starting_date = lesson_timezone.local_to_utc(booking_time)
+    else
+      @booking.starting_date = booking_time
+    end
+  end
 
   # def booking_params
   #   params.require(:booking).permit(:starting_date)

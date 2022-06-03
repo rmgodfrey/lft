@@ -1,15 +1,15 @@
 .btn {
-  border: 2px solid $orange;
+  border: 2px solid $orange!important;
   border-radius: 5px;
-  color: $orange;
-  background-color: white;
+  color: $orange!important;
+  background-color: white!important;
 }
 
 .btn-secondary {
   &:hover, &:active, &:focus {
-    color: $orange;
-    border: 2px solid $orange;
-    background-color: $light-orange;
+    color: $orange!important;
+    border: 2px solid $orange!important;
+    background-color: $light-orange!important;
   }
 }
 
@@ -17,8 +17,8 @@
   background-color: $orange;
   color: white;
   &:hover, &:active, &:focus {
-    color: white;
-    border: 2px solid $gray;
-    background-color: $orange;
+    color: white!important;
+    border: 2px solid $gray!important;
+    background-color: $orange!important;
   }
 }
