@@ -17,20 +17,22 @@ SUBJECTS = %w[
   Physics Chemistry Linguistics Anthropology Sociology Biology
 ]
 
-LOCATIONS = [
-  "Baku, Azerbaijan",
-  "Indianapolis, United States",
-  "Jaipur, India",
-  "Washington D.C., United States",
-  "Mexico City, Mexico",
-  "Yekaterinburg, Russia",
-  "Pyongyang, North Korea",
-  "Chongqing, China"
-].to_h { |location| [location, [location]] }
+LOCATIONS = {
+  "Baku, Azerbaijan" => ["6 Vladislav Plotnikov, Bakı 1007, Azerbaijan"],
+  "Indianapolis, United States" => ["828 Dorman St, Indianapolis, IN 46202, USA"],
+  "Jaipur, India" => ["Chitragupt Nagar 1st, Kidwai Nagar, Tonk Phatak, Jaipur, Rajasthan 302015, India"],
+  "Washington D.C., United States" => ["1199 M St NW, Washington, DC 20005, USA"],
+  "Mexico City, Mexico" => ["Calle San Borja 1362-1354, Vértiz Narvarte, Benito Juárez, 03600 Ciudad de México, CDMX, Mexico"],
+  "Yekaterinburg, Russia" => ["Ulitsa Shchorsa, 62А, Yekaterinburg, Sverdlovskaya oblast', Russia, 620130"],
+  "Pyongyang, North Korea" => ["Kyonghung Street, Pyongyang, North Korea"],
+  "Chongqing, China" => ["Guan Hong Da Dao, Jiang Bei Qu, Chong Qing Shi, China, 401147"]
+}
 
-LOCATIONS["Vancouver, Canada"] = [
-  "3300 Oak St", "2725 W 42nd Ave", "1599 W 65th Ave",
-  "799 Cambie St", "6780 Butler St", "2394 Cornwall Ave"
+van = "Vancouver, Canada"
+
+LOCATIONS[van] = [
+  "3300 Oak St, #{van}", "2725 W 42nd Ave, #{van}", "1599 W 65th Ave, #{van}",
+  "799 Cambie St, #{van}", "6780 Butler St, #{van}", "2394 Cornwall Ave, #{van}"
 ]
 
 LOCATIONS.each do |location, addresses|
@@ -42,7 +44,7 @@ LOCATIONS.each do |location, addresses|
     rand(3).times do
       offer = Offer.new(
         topic: SUBJECTS.sample, description: Faker::Lorem.paragraph,
-        address: "#{address}, #{location}"
+        address: address
       )
       offer.user = user
       offer.save!
