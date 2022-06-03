@@ -26,8 +26,12 @@
 <div class="reviews-container">
   <h2>Reviews</h2>
   <ul>
+    <% if @offer.reviews.empty? %>
+      <li><p>Be the first to leave a review</p></li>
+    <% else %>
     <% @offer.reviews.each do |review| %>
-      <li><%= review.content %> (<%= review.rating %> <span class="star-rating">&#x2605</span> from <%= review.user.name %>)</li>
+       <li><%= review.content %> (<%= review.rating %> <span class="star-rating">&#x2605</span> from <%= review.user.name %>)</li>
+    <% end %>
     <% end %>
   </ul>
 </div>
