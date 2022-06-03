@@ -21,7 +21,7 @@ LOCATIONS = [
   "Baku, Azerbaijan",
   "Indianapolis, United States",
   "Jaipur, India",
-  "Washington, D.C., United States",
+  "Washington D.C., United States",
   "Mexico City, Mexico",
   "Yekaterinburg, Russia",
   "Pyongyang, North Korea",
