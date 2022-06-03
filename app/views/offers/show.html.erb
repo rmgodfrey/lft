@@ -2,7 +2,9 @@
   <div class="show-left">
     <div class="show-left-header">
       <h1><%= @offer.topic %></h1>
+      <h2><%= @offer.user.name %></h2>
       <p><%= @offer.description %></p>
+      <p><%= @offer.address %></p>
     </div>
     <div class="booking-card">
       <div class="card-product-infos">
@@ -24,8 +26,12 @@
 <div class="reviews-container">
   <h2>Reviews</h2>
   <ul>
+    <% if @offer.reviews.empty? %>
+      <li><p>Be the first to leave a review</p></li>
+    <% else %>
     <% @offer.reviews.each do |review| %>
-      <li><%= review.content %> (<%= review.rating %> <span class="star-rating">&#x2605</span> from <%= review.user.name %>)</li>
+       <li><%= review.content %> (<%= review.rating %> <span class="star-rating">&#x2605</span> from <%= review.user.name %>)</li>
+    <% end %>
     <% end %>
   </ul>
 </div>

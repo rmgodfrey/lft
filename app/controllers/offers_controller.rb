@@ -15,6 +15,7 @@ class OffersController < ApplicationController
         image_url: helpers.asset_url("book_icon.png")
       }
     end
+    @offers = @offers.shuffle
   end
 
   def show
