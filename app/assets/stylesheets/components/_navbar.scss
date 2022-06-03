@@ -54,3 +54,10 @@
     margin-left: $spacer;
   }
 }
+
+.navbar .dropdown-toggle {
+  cursor: pointer;
+  &:hover, &:focus, &:active {
+    border-color: $gray;
+  }
+}

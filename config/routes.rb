@@ -4,5 +4,5 @@ Rails.application.routes.draw do
   resources :offers, only: %i[index show new create] do
     resources :bookings, only: %i[new create]
   end
-  resources :bookings, only: :index
+  get 'bookings/:time', to: 'bookings#index', as: :bookings
 end
