@@ -17,9 +17,7 @@ SUBJECTS = %w[
   Physics Chemistry Linguistics Anthropology Sociology Biology
 ]
 
-LOCATIONS = {
-  "Vancouver, Canada" => ["3300 Oak St", "2725 W 42nd Ave", "1599 W 65th Ave",
-                          "799 Cambie St", "6780 Butler St", "2394 Cornwall Ave"],
+LOCATIONS = [
   "Baku, Azerbaijan",
   "Indianapolis, United States",
   "Jaipur, India",
@@ -28,19 +26,28 @@ LOCATIONS = {
   "Yekaterinburg, Russia",
   "Pyongyang, North Korea",
   "Chongqing, China"
-}
+].to_h { |location| [location, [location]] }
 
-5.times do
-  user = User.create(
-    name: Faker::Name.name, location: Faker::Address.city,
-    email: Faker::Internet.email, password: Faker::Internet.password
-  )
-  rand(4).times do
-    offer = Offer.new(
-      topic: SUBJECTS.sample, description: Faker::Lorem.paragraph, address: Faker::Address.street_address
+LOCATIONS["Vancouver, Canada"] = [
+  "3300 Oak St", "2725 W 42nd Ave", "1599 W 65th Ave",
+  "799 Cambie St", "6780 Butler St", "2394 Cornwall Ave"
+]
+
+LOCATIONS.each do |location, addresses|
+  addresses.each do |address|
+    user = User.create(
+      name: Faker::Name.name, location: location,
+      email: Faker::Internet.email, password: Faker::Internet.password
     )
-    offer.user = user
-    offer.save!
+    rand(3).times do
+      offer = Offer.new(
+        topic: SUBJECTS.sample, description: Faker::Lorem.paragraph,
+        address: "#{address}, #{location}"
+      )
+      offer.user = user
+      offer.save!
+    end
   end
 end
+
 puts "created users and offers"
