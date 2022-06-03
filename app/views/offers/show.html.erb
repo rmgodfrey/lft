@@ -21,7 +21,7 @@
   <h2>Reviews</h2>
   <ul>
     <% @offer.reviews.each do |review| %>
-      <li><%= review.content %> (<%= review.rating %> stars, <%= review.user.name %>)</li>
+      <li><%= review.content %> (<%= review.rating %> <span class="star-rating">&#x2605</span> from <%= review.user.name %>)</li>
     <% end %>
   </ul>
 </div>
