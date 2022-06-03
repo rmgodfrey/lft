@@ -19,6 +19,7 @@ img {
 .show-container {
   display: flex;
   justify-content: space-between;
+  gap: 20px
 }
 
 .show-left h1, p {
@@ -43,6 +44,10 @@ img {
   display: inline-block;
   align-items: center;
   border-radius: 10px;
+
+  .form-select {
+    background-color: white;
+  }
 
   .card-product img {
     height: 100%;
@@ -71,5 +76,7 @@ img {
   #new_booking {
     padding: 40px 15px 0px 15px;
   }
-
+}
+#map {
+  height: 100vh;
 }
