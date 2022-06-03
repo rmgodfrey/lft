@@ -21,15 +21,16 @@ class BookingsController < ApplicationController
 
     set_booking_time(offer)
 
-    @booking.save!
-    redirect_to bookings_path("future")
+    redirect_to bookings_path("future") if @booking.save
+    # TODO: re-render page if booking doesn't save. Easier said than done;
+    # not sure how to do this when the page belongs to another controller.
   end
 
   private
 
   def set_booking_time(offer)
     booking_time = parse(params[:booking][:starting_date])
-    if offer.timezone
+    if offer.timezone && booking_time
       lesson_timezone = offer.fetch_timezone
       @booking.starting_date = lesson_timezone.local_to_utc(booking_time)
     else
@@ -42,6 +43,8 @@ class BookingsController < ApplicationController
   # end
 
   def parse(time_string)
+    return if time_string == ""
+
     time_string += ":00Z"
     Time.iso8601(time_string)
   end
