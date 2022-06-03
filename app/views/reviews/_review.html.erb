@@ -1,5 +1,5 @@
 <%= simple_form_for [ @offer, @review ] do |f| %>
   <%= f.input :content, placeholder: 'How was the lecture?', label: false, :class => "form-field", required: true %>
-  <%= f.input :rating, placeholder: 'Give a rating between 1 and 5', label:false, :class => "form-field", required: true %>
+  <%= f.input :rating, placeholder: 'Give a rating between 1 and 5', label:false, :class => "form-field", required: true, as: :string %>
   <%= f.submit "Submit review", class: "btn btn-primary" %>
 <% end %>
