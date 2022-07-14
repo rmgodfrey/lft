@@ -17,7 +17,11 @@
     </li>
     <% if current_user %>
       <li class="nav-item dropdown">
-        <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false", alt: "Photo of #{current_user.name}" %>
+        <% if current_user.photo.key %>
+          <%= cl_image_tag current_user.photo.key, crop: :fill, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", "data-bs-toggle": "dropdown", "aria-haspopup": "true", "aria-expanded": "false", alt: "Photo of #{current_user.name}" %>
+        <% else %>
+          <p class="nav-link dropdown-toggle" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%= current_user.name %></p>
+        <% end %>
         <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
           <%= link_to "Upcoming Lessons", bookings_path("future"), class: "dropdown-item" %>
           <%= link_to "Past Lessons", bookings_path("past"), class: "dropdown-item" %>
